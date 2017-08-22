@@ -1,0 +1,111 @@
+<tigre-navbar></tigre-navbar>
+<div class="section fondo">
+	<div class="container">
+		<div class="row">
+			<div class="card-panel white col m12">
+				<div class="col m3">
+					<div style="width: 100px; height: 100px;">
+						<img src="images/user.png" class=" circle responsive-img">
+					</div>
+					<p class="light"><b>{{$ctrl.perfil.username}}</b></p>
+				</div>	
+				<div class="col m9">
+					<p class="left-align"><b>{{$ctrl.perfil.nombre}} {{$ctrl.perfil.apellido}}</b></p>
+					<p class="left-align">Reputacion como empleador: <i class="small material-icons yellow-text">star</i>{{$ctrl.perfil.reputacion_empleador}}</p> 				
+					<p class="left-align">Reputacion como trabajdor: <i class="small material-icons yellow-text">star</i>{{$ctrl.perfil.reputacion_trabajador}}</p>
+				</div>	
+			</div>
+
+			<div>
+				<nav>
+				    <div class="nav-wrapper">
+				      <ul id="nav-mobile" class="left hide-on-med-and-down">
+				        <li><a href="" ng-click="$ctrl.verCreados = false; $ctrl.verHechos = false; $ctrl.informacion = true;">Informacion</a></li>
+				        <li><a href="" ng-click="$ctrl.informacion = false; $ctrl.verHechos = false; $ctrl.verCreados = true;">Trabajos creados</a></li>
+				        <li><a href="" ng-click="$ctrl.verCreados = false; $ctrl.informacion = false; $ctrl.verHechos = true;">Trabajos hechos</a></li>
+				      </ul>
+				    </div>
+			  	</nav>
+			  	<div class="col m4">
+					<div class="card-panel white especialidades">
+						<p class="center-align"><b>Especialidalidades:</b></p>
+						<ul ng-repeat="option in $ctrl.misCategorias">
+			    			<li><div class="chip">{{option.categoria}}</div></li>
+			    			<ul style="margin-left: 2em;" ng-repeat="suboption in $ctrl.misSubcategorias">
+			    				<li ng-if="option.categoria == suboption.categoria"><div class="chip">{{suboption.subcategoria}}</div></li>
+			    			</ul>
+			    		</ul>	
+					</div>
+				</div>
+
+			  	<div class="col m8" ng-show="$ctrl.informacion">
+					<div class="card-panel white">
+						<p>Email: {{$ctrl.perfil.email}}</p>
+						<p>Telefono: {{$ctrl.perfil.telefono}}</p>
+						<p>Ubicacion: {{$ctrl.perfil.estado}}, {{$ctrl.perfil.ciudad}}, {{$ctrl.perfil.zona}}</p>
+					</div>
+				</div>
+
+				<div class="col m8" ng-show="$ctrl.verHechos">
+					<span class="center-align">
+						Trabajos realizados
+					</span>
+					<table class="fondo-table">
+						<thead>
+							<th>Nombre</th>
+							<th>Descripcion</th>
+							<th>Creador</th>
+							<th>Calificacion</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="option in $ctrl.trabajosHechos">
+								<td>{{option.nombre}}</td>
+								<td>{{option.descripcion}}</td>
+								<td><a href="" ng-click="$ctrl.perfil()">{{option.id_empleador}}</a></td>
+								<td><i class="small material-icons yellow-text">star</i>{{option.calificacion}}</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+
+				<div  class="col m8" ng-show="$ctrl.verCreados">
+					<span class="center-align">
+						Trabajos Creados
+					</span>
+					<table class="fondo-table">
+						<thead>
+							<th>Nombre</th>
+							<th>Descripcion</th>
+							<th>Calificacion</th>
+							<th>Trabajador</th>
+						</thead>
+						<tbody>
+							<tr ng-repeat="option in $ctrl.trabajosCreados">
+								<td>{{option.nombre}}</td>
+								<td>{{option.descripcion}}</td>
+								<td><i class="small material-icons yellow-text">star</i>{{option.calificacion}}</td>
+								<td><a href="" ng-click="$ctrl.perfil()">{{option.nombre}}</a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+				
+			 
+		</div>
+	</div>
+</div>
+<style type="text/css">
+	.fondo{
+		background:url(./images/fondo.jpg);
+		padding-bottom: 30rem !important;
+	}
+	.especialidades{
+		padding-bottom: 89px;
+	}
+	.fondo-table{
+			background-color: white;
+	}
+
+</style>
+

@@ -1,0 +1,63 @@
+<tigre-navbar></tigre-navbar>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col m6">
+				<form id="formulario">
+					<div class="input-field col m12">
+						<input type="text" class="validate" id="nombre" ng-model="$ctrl.trabajo.nombre">
+						<label class="active" for="nombre">Nombre de trabajo</label>
+					</div>
+					
+					<div class="input-field col m12">
+						<textarea id="descripcion" ng-model=$ctrl.trabajo.descripcion data-lenght="600" class="materialize-textarea"></textarea>
+				   		    <label for="descripcion">Descripcion de texto</label>
+				   </div>
+				   <div class="input-field col m12">
+				   		<input type="text" name="validate"
+				   		id="presupuesto" ng-model="$ctrl.trabajo.presupuesto" pattern="^(0|[1-9][0-9]*)$">
+				   		<label class="active" for="presupuesto">Presupuesto</label>
+				   </div>
+				   
+				   <div class="col s12 m12">
+						<label class="col s12 m12">Estado</label>
+						<div class="col s4 m4" ng-repeat="option in $ctrl.estados">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.cargarCiudades(option.estado); $ctrl.trabajo.estado=option.estado; $ctrl.zonas = [];">{{option.estado}}</a>
+						</div>	
+					</div>
+					<div class="col s12 m12 espacio-arriba">
+						<label class="col s12 m12">Ciudad</label>
+						<div class="col s4 m4" ng-repeat="option in $ctrl.ciudades">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.cargarZonas($ctrl.trabajo.estado, option.ciudad); $ctrl.trabajo.ciudad=option.ciudad;">{{option.ciudad}}</a>
+						</div>	
+					</div>
+					<div class="col s12 m12 espacio-arriba">
+						<label class="col s12 m12">Zonas</label>
+						<div class="col s4 m4" ng-repeat="option in $ctrl.zonas">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.trabajo.zona=option.zona">{{option.zona}}</a>
+						</div>
+					</div>
+
+				   	<div class="col s12 m12 espacio-arriba">
+						<label class="col s12 m12">Categorias</label>
+						<div class="col s4 m6" ng-repeat="option in $ctrl.categorias">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.cargarSubcategorias(option.nombre); $ctrl.trabajo.categoria=option.nombre;">{{option.nombre}}</a>
+						</div>
+				   	</div>
+					<div class="col s12 m12 espacio-arriba">
+						<label class="col s12 m12">Subcategorias</label>
+						<div class="col s4 m6" ng-repeat="option in $ctrl.subcategorias">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.trabajo.subcategoria=option.nombre;">{{option.nombre}}</a>
+						</div>
+				   	</div>
+
+				   	<div class="center" style="margin-top: 4em;">
+						<a class="waves-effect waves-light btn green white-text" ng-click="$ctrl.crearTrabajo()">Enviar</a>
+						<label class="center red-text light col s12 m12" style="margin-top: 1em;">{{$ctrl.formMessage}}</label>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+</div>

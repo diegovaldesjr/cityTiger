@@ -1,0 +1,57 @@
+<tigre-navbar></tigre-navbar>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col m12">
+				<ul class="collapsible" data-collapsible="accordion">
+				 	<li ng-repeat="option in $ctrl.trabajos">
+				 		<div class="collapsible-header"><b>{{option.nombre}}</b>
+				 		</div>
+				 		<div class="collapsible-body">
+			 				<div class="col m8">
+			 					<p><b>Descripcion</b><br>{{option.descripcion}}</p>
+			 				</div>
+			 				<div class="col m4">
+			 					<p><b>Presupuesto: </b>{{option.presupuesto}} BsF.</p>
+			 				</div>
+			 				<div class="col m12">
+				 				<p><b>Fecha creado</b><br>{{option.fecha_creado}}</p>			
+				 			</div>
+				 			<div class="col m8">
+					 			<p><a href="" ng-click="$ctrl.perfil(option.id_empleador)"><b>{{option.id_empleador}}</b></a></p>
+				 			</div>
+				 			<div class="col m4">
+				 				<div class="chip">{{option.subcategoria}}</div>
+				 			</div>
+				 			<div ng-show="option.mostrar">
+				 				<hr class="col m12">
+				 				<div class="col m12" style="margin-top: 2em;">
+					 				<b class="center">Realizar propuesta</b>
+					 			</div>
+								<div class="input-field col m12">
+									<input type="text" name="validate" 
+									id="precio" ng-model="$ctrl.propuesta.precio" pattern="^(0|[1-9][0-9]*)$">
+									<label class="active" for="precio">Precio</label>
+								</div>
+								<div class="input-field col m12">
+									<textarea id="descripcion" ng-model="$ctrl.propuesta.descripcion" data-lenght="600" class="materialize-textarea"></textarea>
+								    <label for="descripcion">Descripcion de propuesta</label>
+								</div> 
+								<div class="center col m12" style="margin-top: 4em; margin-bottom: 4em;">
+									<a class="waves-effect waves-light btn green white-text" ng-click="$ctrl.postular(option.id)">Enviar</a>
+									<label class="center red-text light col s12 m12" style="margin-top: 1em;">{{$ctrl.formMessage}}</label>
+								</div>	
+				 			</div>	
+				 		</div>	
+				 	</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function(){
+		$('.collapsible').collapsible();
+	});
+</script>

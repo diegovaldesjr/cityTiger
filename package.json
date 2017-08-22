@@ -1,0 +1,37 @@
+{
+  "name": "tigre",
+  "version": "1.0.0",
+  "description": "Consigue trabajos en tu comunidad",
+  "main": "server.js",
+  "scripts": {
+    "build": "gulp"
+  },
+  "keywords": [
+    "tigre",
+    "proyecto"
+  ],
+  "author": "Diego",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "materialize-css": "^0.99.0",
+    "method-override": "^2.3.9",
+    "morgan": "^1.8.2"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-concat-css": "^2.3.0",
+    "gulp-csscomb": "^3.0.8",
+    "gulp-csso": "^3.0.0",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-imagemin": "^3.3.0",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0",
+    "gulp-util": "^3.0.8",
+    "watchify": "^3.9.0"
+  }
+}

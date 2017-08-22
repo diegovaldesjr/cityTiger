@@ -1,0 +1,190 @@
+<tigre-navbar></tigre-navbar>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col m12">
+				<h4 class="light"> Trabajos realizados</h4>
+			</div>
+			<div class="col m12" ng-show="$ctrl.verTrabajos">
+				<table>
+					<thead>
+						<tr>
+							<th>Nombre del trabajo</th>
+							<th>Descripcion</th>
+							<th>Creador</th>
+							<th>Accion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in $ctrl.trabajos">
+							<td>{{item.nombre}}</td>
+							<td>{{item.descripcion}}</td>
+							<td><a href="" ng-click="$ctrl.perfil(item.id_empleador)">{{item.id_empleador}}</a></td>
+							<td>
+								<a href="" ng-if="item.calificacion > 0 && item.calificado == false;" ng-click=" $ctrl.verTrabajos = false; $ctrl.calificar = true; $ctrl.trabajo = item;"><i class="small material-icons">star</i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+
+			<div class="col m12" ng-show="$ctrl.calificar">
+				<div class="col m12">
+					<a class="waves-effect waves-light btn black white-text right" ng-click="$ctrl.calificar=false; $ctrl.verTrabajos=true;">Volver</a>
+				</div>
+				<div class="col m12">
+					<h5 class="center light">Calificar trabajador</h5>
+				</div>
+				<div class="row">
+					<div class="col m2 offset-m2">
+						<span>Responsabilidad</span>
+					</div>
+					 <div class="col m8">
+				  
+					 	 <a href="" ng-click="$ctrl.evaluacion.responsabilidad = 1"><i class="material-icons left 1" id="1";>star</i> </a>
+					 	 <a href="" ng-click="$ctrl.evaluacion.responsabilidad = 2"><i class="material-icons left 2" id="2">star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.responsabilidad = 3"><i class="material-icons left 3" id="3">star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.responsabilidad = 4"><i class="material-icons left 4" id="4">star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.responsabilidad = 5"><i class="material-icons left 5" id="5">star</i> </a>   
+					 </div>
+				</div>
+				<div class="row">
+					<div class="col m2 offset-m2">
+						<span>Trato</span>
+					</div>
+					 <div class="col m8">
+					    <a href="" ng-click="$ctrl.evaluacion.trato = 1"><i class="material-icons left 11" id="11";>star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.trato = 2"><i class="material-icons left 22" id="22">star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.trato = 3"><i class="material-icons left 33" id="33">star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.trato = 4"><i class="material-icons left 44" id="44">star</i> </a>   
+					 	 <a href="" ng-click="$ctrl.evaluacion.trato = 5"><i class="material-icons left 55" id="55">star</i> </a> 
+					 </div>
+				</div>
+				<div class="center" style="margin-top: 4em;">
+					<a class="waves-effect waves-light btn green white-text" ng-click="$ctrl.calificarEmpleador()">Enviar</a>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<script>
+ 	$(".1").hover(function(){
+    $("#1").css("color", "yellow");
+    }, function(){
+    $(this).css("color", " black");
+});
+ 	$(".2").hover(function(){
+    $("#2").css("color", "yellow");
+    $("#1").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+ 	$(".3").hover(function(){
+    $("#3").css("color", "yellow");
+    $("#2").css("color", "yellow");
+    $("#1").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+$(".4").hover(function(){
+    $("#4").css("color", "yellow");
+    $("#3").css("color", "yellow");
+    $("#2").css("color", "yellow");
+    $("#1").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+$("#5").hover(function(){
+    $("#5").css("color", "yellow");
+    $("#4").css("color", "yellow");
+    $("#3").css("color", "yellow");
+    $("#2").css("color", "yellow");
+    $("#1").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+}); 
+
+$(".11").hover(function(){
+    $("#11").css("color", "yellow");
+    }, function(){
+    $(this).css("color", " black");
+});
+ 	$(".22").hover(function(){
+    $("#22").css("color", "yellow");
+    $("#11").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+ 	$(".33").hover(function(){
+    $("#33").css("color", "yellow");
+    $("#22").css("color", "yellow");
+    $("#11").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+$(".44").hover(function(){
+    $("#44").css("color", "yellow");
+    $("#33").css("color", "yellow");
+    $("#22").css("color", "yellow");
+    $("#11").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+$("#55").hover(function(){
+    $("#55").css("color", "yellow");
+    $("#44").css("color", "yellow");
+    $("#33").css("color", "yellow");
+    $("#22").css("color", "yellow");
+    $("#11").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+}); 
+
+$(".111").hover(function(){
+    $("#111").css("color", "yellow");
+    }, function(){
+    $(this).css("color", " black");
+});
+ 	$(".222").hover(function(){
+    $("#222").css("color", "yellow");
+    $("#111").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+ 	$(".333").hover(function(){
+    $("#333").css("color", "yellow");
+    $("#222").css("color", "yellow");
+    $("#111").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+$(".444").hover(function(){
+    $("#444").css("color", "yellow");
+    $("#333").css("color", "yellow");
+    $("#222").css("color", "yellow");
+    $("#111").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+$("#555").hover(function(){
+    $("#555").css("color", "yellow");
+    $("#444").css("color", "yellow");
+    $("#333").css("color", "yellow");
+    $("#222").css("color", "yellow");
+    $("#111").css("color", "yellow");
+    }, function(){
+    $(this).css("color", "black");
+});
+
+ </script>

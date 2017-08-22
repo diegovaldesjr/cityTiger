@@ -1,0 +1,72 @@
+<div class="section c">
+	<div class="container">
+		<div class="row">
+			<div class="col m2"><a href="#/!" class="black-text light">Volver</a>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col s12 m7 offset-m3">
+				<form id="formulario">
+					<div class="input-field">
+						<input id="username" name="username" type="text" class="validate" ng-change="$ctrl.validarUsername($ctrl.datos.username)" ng-model="$ctrl.datos.username">
+      					<label class="active" for="username">Username</label>
+					</div>
+					<label class="center red-text light">{{$ctrl.usernameMessage}}</label>
+
+					<div class="input-field">
+						<input id="email" type="email" class="validate" ng-change="$ctrl.validarEmail($ctrl.datos.email)" ng-model="$ctrl.datos.email">
+				        <label for="email" data-error="wrong" data-success="right">Email</label>
+					</div>
+					<label class="center red-text light">{{$ctrl.emailMessage}}</label>
+
+					<div class="input-field">
+						<input id="nombre" type="text" class="validate" ng-model="$ctrl.datos.nombre">
+      					<label class="active" for="nombre">Nombre</label>
+					</div>
+					<div class="input-field">
+						<input id="apellido" type="text" class="validate" ng-model="$ctrl.datos.apellido">
+      					<label class="active" for="apellido">Apellido</label>
+					</div>
+					<div class="input-field">
+						<input id="telefono" type="text" class="validate" ng-model="$ctrl.datos.telefono">
+      					<label class="active" for="telefono">Telefono</label>
+					</div>
+					<div class="input-field">
+						<input id="contrasena" type="password" class="validate" ng-model="$ctrl.datos.contrasena">
+      					<label class="active" for="contrasena">Contraseña</label>
+					</div>
+
+					<div class="col s12 m12">
+						<label class="col s12 m12">Estado</label>
+						<div class="col s4 m4" ng-repeat="option in $ctrl.estados">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.cargarCiudades(option.estado); $ctrl.datos.estado=option.estado; $ctrl.zonas = [];">{{option.estado}}</a>
+						</div>	
+					</div>
+					<div class="col s12 m12 espacio-arriba">
+						<label class="col s12 m12">Ciudad</label>
+						<div class="col s4 m4" ng-repeat="option in $ctrl.ciudades">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.cargarZonas($ctrl.datos.estado, option.ciudad); $ctrl.datos.ciudad=option.ciudad;">{{option.ciudad}}</a>
+						</div>	
+					</div>
+					<div class="col s12 m12 espacio-arriba">
+						<label class="col s12 m12">Zonas</label>
+						<div class="col s4 m4" ng-repeat="option in $ctrl.zonas">
+					      <a class="waves-effect waves-light btn grey darken-4 white-text" ng-click="$ctrl.datos.zona=option.zona">{{option.zona}}</a>
+						</div>		
+					</div>
+
+					<div class="center" style="margin-top: 4em">
+						<a class="waves-effect waves-light btn black-tiger-btn white-text" ng-click="$ctrl.registrarUsuario()">Enviar</a>
+						<label class="center red-text light col s12 m12" style="margin-top: 1em">{{$ctrl.formMessage}}</label>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('select').material_select();
+	});
+</script>

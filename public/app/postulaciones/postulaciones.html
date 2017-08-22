@@ -1,0 +1,34 @@
+<tigre-navbar></tigre-navbar>
+<div class="section">
+	<div class="container">
+		<div class="row">
+			<div class="col m12">
+				<h4 class="light"> Mis postulaciones</h4>
+			</div>
+			<div class="col m12">
+				<table>
+					<thead>
+						<tr>
+							<th>Nombre del trabajo</th>
+							<th>Descripcion</th>
+							<th>Precio</th>
+							<th>Creador</th>
+							<th>Accion</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in $ctrl.trabajos">
+							<td>{{item.nombre}}</td>
+							<td>{{item.descripcion}} </td>
+							<td>{{item.precio}}</td>
+							<td><a href="" ng-click="$ctrl.perfil(item.id_empleador)">{{item.id_empleador}}</a></td>
+							<td>
+								<a href="" ng-click="$ctrl.eliminarPostulacion(item.id)"><i class="small material-icons">delete</i></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
